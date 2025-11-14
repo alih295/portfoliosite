@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@font-face {
+   font-family: 'myFont';
+   src: url('../public/fonts/gilroy/Gilroy-Regular.ttf') format('truetype');
+}
+
+@font-face {
+   font-family: myfont2;
+   src: url('../public/fonts/gilroy/Gilroy-Black.ttf');
+}
+
+
+.strokedText{
+   -webkit-text-stroke: 1px white;
+   transition:all ease 0.5s;
+}
+
+.strokedText:hover{
+   color: teal;
+   -webkit-text-stroke: 0px ;
+}
+
