@@ -13,7 +13,7 @@ function About() {
       <h1 className='text-[4vw] text-center capitalize'>
          <span className='text-teal-500'>about</span> me</h1>
    <div className='w-full h-[70%] flex items-center justify-between p-5 overflow-hidden rounded-2xl mt-10 shadow-lg shadow-gray-200 bg-gray-900'>
-   <div className='w-[45%] rounded-lg overflow-hidden  h-full '><img className='w-full h-full object-cover' src="../../public/images/about.JPG" alt="" /></div>
+   <div className='w-[45%] rounded-lg overflow-hidden  h-full '><img className='w-full h-full object-cover' src="/about.JPG" alt="" /></div>
    <div className='w-[50%] h-full bg-gray-700 p-5 rounded-lg'>
       <h1 className='font-[myfont2] text-2xl font-bold'>Transforming Ideas Into Powerful Web Experiences </h1>
 
