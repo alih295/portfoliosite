@@ -7,35 +7,36 @@ import { IoLocationSharp } from "react-icons/io5";
 
 function Contact() {
    return (
-      <div className='w-full h-screen  text-gray-200 font-[myFont] bg-gray-900'>
+      <div className='w-full lg:h-screen  text-gray-200 font-[myFont] bg-gray-900'>
          <NavBar />
-         <h1 className='text-center mt-5 font-bold text-[3vw] '><span className='text-teal-500'>Get In</span> Touch</h1>
-         <p className='text-center '>Ready to start your next project? Let's discuss how we can work together to bring your ideas to life.</p>
-         <div className='w-full p-10 flex items-center justify-between   h-[80%] '>
+         <h1 className='text-center mt-5 font-bold lg:text-[3vw] text-3xl '><span className='text-teal-500'>Get In</span> Touch</h1>
+         <p className='text-center text-sm lg:text-md '>Ready to start your next project? Let's discuss how we can work together to bring your ideas to life.</p>
+         <div className='w-full lg:p-10 p-5 flex lg:flex-row flex-col items-center justify-between   h-[80%] '>
 
-            <div className='w-[45%] rounded-lg flex justify-center items-start gap-10 flex-col shadow-lg shadow-gray-400 h-full bg-gray-800 p-10  '>
+            <div className='lg:w-[45%] w-full
+             rounded-lg flex justify-center items-start gap-10 flex-col shadow-lg shadow-gray-400 h-full  bg-gray-800 p-10  '>
                <h1 className='text-center text-xl font-semibold'>Contact Information</h1>
                <div className='flex items-center border-b border-gray-500 w-full gap-5'>
-                  <span className='w-15 h-15 text-2xl  font-bold  bg-gray-900 rounded-full flex items-center justify-center'><HiOutlineMailOpen /></span>
+                  <span className='w-15 h-15 text-2xl  font-bold  rounded-full flex items-center justify-center'><HiOutlineMailOpen /></span>
                   <div>
                      Email <br /> alihaider295tts@gmail.com
                   </div>
                </div>
                <div className='flex items-center border-b border-gray-500 w-full gap-5'>
-                  <span className='w-15 h-15 text-2xl  font-bold  bg-gray-900 rounded-full flex items-center justify-center'><FaPhoneAlt /></span>
+                  <span className='w-15 h-15 text-2xl  font-bold  rounded-full flex items-center justify-center'><FaPhoneAlt /></span>
                   <div>
                      Phone <br /> 03075133794
                   </div>
                </div>
                <div className='flex items-center border-b border-gray-500 w-full gap-5'>
-                  <span className='w-15 h-15 text-2xl  font-bold  bg-gray-900 rounded-full flex items-center justify-center'><IoLocationSharp /></span>
+                  <span className='w-15 h-15 text-2xl  font-bold   rounded-full flex items-center justify-center'><IoLocationSharp /></span>
                   <div>
                      Location <br /> TobaTekSingh ,punjab , pakistan
                   </div>
                </div>
 
             </div>
-            <div className='w-[45%] flex flex-col items-start justify-start gap-5 rounded-lg p-10 shadow-lg shadow-gray-400 h-full bg-gray-800  '>
+            <div className='lg:w-[45%] w-full lg:mt-0 mt-10 flex flex-col items-start justify-start gap-5 rounded-lg p-10 shadow-lg shadow-gray-400 h-full bg-gray-800  '>
                <h1 className='text-center text-2xl font-semibold'>Send a message</h1>
                <form className='w-full' >
                   <label className='text-gray-400 block mt-5   mb-2' >Full Name</label>

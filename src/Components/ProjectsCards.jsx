@@ -2,7 +2,7 @@ import React from 'react'
 
 function ProjectsCards({ elem, idx }) {
    return (
-      <div key={idx} className='w-[30%] p-5 max-h-[700px] transition-all duration-300 rounded-2xl hover:shadow-lg hover:scale-y-105 shadow-gray-400 bg-gray-700'>
+      <div key={idx} className='lg:w-[30%] w-full p-5 max-h-[700px] transition-all duration-300 rounded-2xl shadow-md hover:scale-y-105 shadow-gray-400 bg-gray-700'>
          <img className='w-full  object-cover ' src="https://www.cio.com/wp-content/uploads/2023/05/apps-mobile-100721214-orig-1.jpg?quality=50&strip=all" alt="" />
          <h1 className='text-xl font-bold mt-2'>{elem.title}</h1>
          <p className='text-sm font-light mt-2'>{elem.descriptio}</p>

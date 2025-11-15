@@ -5,16 +5,16 @@ function About() {
   return (
    <>
     
-    <div className='w-full h-screen font-semibold text-gray-200  bg-gray-700 font-[myFont]'>
+    <div className='w-full lg:h-screen  font-semibold text-gray-200  bg-gray-700 font-[myFont]'>
      <NavBar/>
-     <div className='p-10'>
+     <div className='lg:p-10 p-5'>
 
      
-      <h1 className='text-[4vw] text-center capitalize'>
+      <h1 className='lg:text-[4vw] text-4xl text-center capitalize'>
          <span className='text-teal-500'>about</span> me</h1>
-   <div className='w-full h-[70%] flex items-center justify-between p-5 overflow-hidden rounded-2xl mt-10 shadow-lg shadow-gray-200 bg-gray-900'>
-   <div className='w-[45%] rounded-lg overflow-hidden  h-full '><img className='w-full h-full object-cover' src="../../public/images/about.JPG" alt="" /></div>
-   <div className='w-[50%] h-full bg-gray-700 p-5 rounded-lg'>
+   <div className='w-full lg:h-[70%] min-h-100 flex lg:flex-row flex-col items-center justify-between p-5 overflow-hidden lg:gap-0 gap-10 rounded-2xl lg:mt-10 mt-5 shadow-lg shadow-gray-200 bg-gray-900'>
+   <div className='lg:w-[45%] w-full rounded-lg overflow-hidden  h-full '><img className='w-full h-full object-cover' src="../../public/images/about.JPG" alt="" /></div>
+   <div className='lg:w-[50%] w-full h-full bg-gray-700 p-5 rounded-lg'>
       <h1 className='font-[myfont2] text-2xl font-bold'>Transforming Ideas Into Powerful Web Experiences </h1>
 
 <p className='font-[myFont] text-md font-light mt-5'>Hello! I'm Ali Haider, a passionate and detail-oriented MERN Stack Developer dedicated to crafting high-quality, dynamic, and scalable web applications.
