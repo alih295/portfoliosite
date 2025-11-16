@@ -23,7 +23,7 @@
 
 @media (max-width:600px) {
    .strokedText{
-   -webkit-text-stroke: 0px rgb(199, 25, 25);
+   -webkit-text-stroke: 0px rgb(199, 25, 26);
    
 }
 }
