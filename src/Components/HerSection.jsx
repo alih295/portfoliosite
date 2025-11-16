@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 function HerSection() {
    return (
       <div className='w-full lg:gap-0  gap-10 z-10 relative lg:px-10 lg:mt-40  flex  lg:flex-row flex-col items-center justify-start lg:justify-center mt-10 font-[myFont]'>
-         <div className='lg:w-[50vw] w-full lg:h-[500px]    px-5 rounded-lg flex items-start justify-center flex-col'>
+         <div className='lg:w-[50vw] w-full lg:h-[500px]  px-5 rounded-lg flex items-start justify-center flex-col'>
             <p className='lg:text-2xl text-lg tracking-tight lg:leading-[3.5vw] '>
                I'm <span className='lg:text-[3vw] text-2xl font-bold  m-2 font-[myFont] text-gray-200  '> Ali Haider</span> , a <span className='lg:text-[3vw] text-4xl strokedText m-2 font-[myfont2] text-teal-500 lg:text-transparent  '> MERN Stack Developer</span>   specializing in creating modern, high-performance web solutions that help businesses grow online.
             </p>
@@ -16,7 +16,7 @@ function HerSection() {
          </div>
 
 
-         <div className='lg:w-[40vw] w-full hover:border-2 border-dashed transition-all duration-200 shadow-lg shadow-gray-700 h-[500px] overflow-hidden rounded-full  flex items-center justify-center'>
+         <div className='lg:w-[40vw] w-full hover:border-2 border-dashed transition-all duration-200 shadow-lg shadow-gray-700  overflow-hidden rounded-full  flex items-center justify-center'>
             <img className='  object-cover' src='/img.png' alt="img is not showing" />
          </div>
 
