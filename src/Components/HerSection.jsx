@@ -16,8 +16,8 @@ function HerSection() {
          </div>
 
 
-         <div className='w-[40vw] hover:border-2 border-dashed transition-all duration-200 shadow-lg shadow-gray-700 h-[500px] overflow-hidden rounded-full  flex items-center justify-center'>
-            <img className='  object-cover' src='../../public/img.png' alt="img is not showing" />
+         <div className='lg:w-[40vw] w-full hover:border-2 border-dashed transition-all duration-200 shadow-lg shadow-gray-700 h-[500px] overflow-hidden rounded-full  flex items-center justify-center'>
+            <img className='  object-cover' src='/img.png' alt="img is not showing" />
          </div>
 
       </div>
