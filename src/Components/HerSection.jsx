@@ -22,8 +22,8 @@ function HerSection() {
    flex items-center justify-center
    border-dashed hover:border-2
    shadow-lg shadow-gray-700
-   rounded-xl lg:rounded-full
-   lg:h-[450px]
+  rounded-full
+   lg:h-[500px]
    h-[250px]'>
             <img className=' w-full h-full  object-cover' src='/img.png' alt="img is not showing" />
          </div>
