@@ -5,15 +5,15 @@ function About() {
   return (
    <>
     
-    <div className='w-full lg:h-screen  font-semibold text-gray-200  bg-gray-700 font-[myFont]'>
+    <div className='w-full lg:h-screen h-full font-semibold text-gray-200  bg-gray-700 font-[myFont]'>
      <NavBar/>
      <div className='lg:p-10 p-5'>
 
      
       <h1 className='lg:text-[4vw] text-4xl text-center capitalize'>
          <span className='text-teal-500'>about</span> me</h1>
-   <div className='w-full h-[70%] flex items-center justify-between p-5 overflow-hidden rounded-2xl mt-10 shadow-lg shadow-gray-200 bg-gray-900'>
-   <div className='w-[45%] rounded-lg overflow-hidden  h-full '><img className='w-full h-full object-cover' src="../../public/images/about.JPG" alt="" /></div>
+   <div className='w-full lg:h-[70%] h-full flex lg:flex-row flex-col items-center justify-between p-5 overflow-hidden rounded-2xl mt-10 shadow-lg shadow-gray-200 bg-gray-900'>
+   <div className='lg:w-[45%] w-full rounded-lg overflow-hidden  h-full '><img className='w-full h-full object-cover' src="/about.JPG" alt="" /></div>
    <div className='w-[50%] h-full bg-gray-700 p-5 rounded-lg'>
       <h1 className='font-[myfont2] text-2xl font-bold'>Transforming Ideas Into Powerful Web Experiences </h1>
 
