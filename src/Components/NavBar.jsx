@@ -27,9 +27,9 @@ function NavBar() {
           <ul className='w-full flex gap-2  flex-col mt-10 text-lg '>
             <li className='border-b-2 border-teal-500'><Link to={'/'}>Home</Link></li>
             <li className='border-b-2 border-teal-500'><Link to={'/about'}>About</Link></li>
-            <li className='border-b-2 border-teal-500'><Link to={'/contact'}>Coontact</Link></li>
+            <li className='border-b-2 border-teal-500'><Link to={'/contact'}>Contact</Link></li>
             <li className='border-b-2 border-teal-500'><Link to={'/project'}>Projects</Link></li>
-            <li className='border-b-2 border-teal-500'><Link to={'/skill'}>Skill</Link></li>
+            <li className='border-b-2 border-teal-500'><Link to={'/skill'}>Skills</Link></li>
             
           </ul>
         </nav>
