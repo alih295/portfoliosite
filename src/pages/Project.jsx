@@ -37,7 +37,7 @@ const projects = [
 
 
    return (
-      <div className='w-full h-full font-[myFont]  text-gray-200 bg-gray-900'>
+      <div id='projects' className='w-full h-full font-[myFont]  text-gray-200 bg-gray-900'>
          <NavBar />
          <h1 className='lg:text-[3vw] text-3xl font-bold text-center mt-10 '>
             <span className='text-teal-500'>Featured

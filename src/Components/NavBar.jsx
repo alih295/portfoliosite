@@ -1,63 +1,103 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import { FaFacebookF } from "react-icons/fa";
 import { BsGithub } from "react-icons/bs";
 import { FaLinkedinIn } from "react-icons/fa6";
-import { Link } from 'react-router-dom'
 import { FiMenu } from "react-icons/fi";
 import { RxCross1 } from "react-icons/rx";
-
-
-
-
+import { motion, AnimatePresence } from "framer-motion";
 
 function NavBar() {
+  const [open, setOpen] = useState(false);
 
-  const [showLink, setShowLink] = useState(false)
+  const navItems = [
+    { name: "Home", id: "home" },
+    { name: "About", id: "about" },
+    { name: "Skills", id: "skills" },
+    { name: "Projects", id: "projects" },
+    { name: "Contact", id: "contact" },
+  ];
+
+  const scrollTo = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    setOpen(false);
+  };
 
   return (
-    <div className='w-full font-[myFont] z-40 relative  lg:px-10 px-5  flex items-center justify-between lg:py-4  border-b border-gray-500'>
-      <h1 className='lg:text-4xl text-2xl text-teal-500 font-semibold'>
-        Ali Haider
-      </h1>
+    <header className="fixed top-0 w-full z-50 backdrop-blur bg-black/40 border-b border-gray-700">
+      <div className="max-w-7xl mx-auto px-5 lg:px-10 flex items-center justify-between py-4">
 
-      {/* responsive section */}
-      <div className={`  rounded-lg z-20  lg:hidden   p-5 absolute ${showLink ? 'right-0 h-[40vh] opacity-100 top-0' : '-right-50 opacity-0 -top-50'}  transition-all duration-300 backdrop-blur-sm bg-white/30   `}>
-        <div onClick={() => setShowLink(!showLink)} className='absolute right-4 text-lg'><RxCross1 /></div>
-        <nav>
-          <ul className='w-full flex gap-2  flex-col mt-10 text-lg '>
-            <li className='border-b-2 border-teal-500'><Link to={'/'}>Home</Link></li>
-            <li className='border-b-2 border-teal-500'><Link to={'/about'}>About</Link></li>
-            <li className='border-b-2 border-teal-500'><Link to={'/contact'}>Contact</Link></li>
-            <li className='border-b-2 border-teal-500'><Link to={'/project'}>Projects</Link></li>
-            <li className='border-b-2 border-teal-500'><Link to={'/skill'}>Skills</Link></li>
-            
+        {/* Logo */}
+        <h1 className="text-2xl lg:text-3xl text-teal-500 font-semibold">
+          Ali Haider
+        </h1>
+
+        {/* Desktop Nav */}
+        <nav className="hidden lg:flex">
+          <ul className="flex gap-10 text-gray-400">
+            {navItems.map((item) => (
+              <motion.li
+                key={item.id}
+                onClick={() => scrollTo(item.id)}
+                className="relative cursor-pointer hover:text-white"
+                whileHover={{ scale: 1.1 }}
+              >
+                {item.name}
+                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-teal-500 transition-all group-hover:w-full" />
+              </motion.li>
+            ))}
           </ul>
         </nav>
+
+        {/* Desktop Socials */}
+        <div className="hidden lg:flex gap-4">
+          <motion.a whileHover={{ scale: 1.2 }} href="https://www.facebook.com/alihaider.asgharali.96" target="_blank">
+            <FaFacebookF />
+          </motion.a>
+          <motion.a whileHover={{ scale: 1.2 }} href="https://github.com/alih295" target="_blank">
+            <BsGithub />
+          </motion.a>
+          <motion.a whileHover={{ scale: 1.2 }} href="https://www.linkedin.com/in/hafiz-ali-haider-asghar-987992368/" target="_blank">
+            <FaLinkedinIn />
+          </motion.a>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <div onClick={() => setOpen(true)} className="lg:hidden text-2xl cursor-pointer">
+          <FiMenu />
+        </div>
+
+        {/* Mobile Drawer */}
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              className="fixed top-0 right-0 w-[70%] h-screen bg-black text-white p-6 z-50"
+            >
+              <div className="flex justify-end mb-10">
+                <RxCross1 onClick={() => setOpen(false)} className="text-2xl cursor-pointer" />
+              </div>
+
+              <ul className="flex flex-col gap-6 text-lg">
+                {navItems.map((item) => (
+                  <li
+                    key={item.id}
+                    onClick={() => scrollTo(item.id)}
+                    className="border-b border-gray-600 pb-2 cursor-pointer"
+                  >
+                    {item.name}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
       </div>
-
-
-
-
-
-
-      <nav className='lg:flex hidden' >
-        <ul className='flex gap-10 text-lg '>
-          <li className='hover:border-b hover:text-gray-200 hover:scale-110  transition-all duration-200 text-md  text-gray-400'> <Link to='/'> Home</Link> </li>
-          <li className='hover:border-b hover:scale-110  transition-all duration-200 text-md hover:text-gray-200 text-gray-400'> <Link to={'/about'}> About</Link> </li>
-          <li className='hover:border-b  hover:scale-110  transition-all duration-200 text-md hover:text-gray-200 text-gray-400'><Link to={'/contact'}>Contact</Link></li>
-          <li className='hover:border-b  hover:scale-110 transition-all duration-200 text-md hover:text-gray-200 text-gray-400'><Link to={'/project'}>Projects</Link></li>
-          <li className='hover:border-b  hover:scale-110 transition-all duration-200 text-md hover:text-gray-200 text-gray-400'><Link to={'/skill'}>Skills</Link></li>
-        </ul>
-      </nav>
-      <div className='lg:flex hidden  gap-5' >
-        <a target='blank' href='https://www.facebook.com/alihaider.asgharali.96' className='lg:w-10 w-8 h-8 flex items-center hover:bg-[#1877F2] transitn-color duration-200 justify-center text-lg  lg:text-2xl lg:h-10 shadow-lg shadow-gray-500 rounded-full '> <FaFacebookF /></a>
-        <a target='blank' href='https://github.com/alih295' className='lg:w-10 w-8 h-8 flex items-center hover:bg-[#FFFFFF] hover:text-black transitn-color duration-200 justify-center lg:text-2xl text-lg lg:h-10 shadow-lg shadow-gray-500 rounded-full '> <BsGithub /></a>
-        <a target='blank' href='https://www.linkedin.com/in/hafiz-ali-haider-asghar-987992368/' className='lg:w-10 w-8 h-8 flex items-center hover:bg-[#1877F2] transitn-color duration-200 justify-center text-lg  lg:text-2xl lg:h-10 shadow-lg shadow-gray-500 rounded-full  '> <FaLinkedinIn /></a>
-
-      </div>
-      <div onClick={() => setShowLink(!showLink)} className='text-xl lg:hidden px-5 py-5 rounded-full'> <FiMenu />  </div>
-    </div>
-  )
+    </header>
+  );
 }
 
-export default NavBar
+export default NavBar;

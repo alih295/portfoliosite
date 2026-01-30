@@ -10,20 +10,11 @@
    src: url('/fonts/gilroy/Gilroy-Black.ttf');
 }
 
-
-.strokedText{
-   -webkit-text-stroke: 1px white;
-   transition:all ease 0.5s;
+@root{
+   --black:rgb(0,0,0),
+   --secondary:rgb(109,0,26),
+   --white:rgb(255,255,255)
 }
 
-.strokedText:hover{
-   color: teal;
-   -webkit-text-stroke: 0px ;
-}
 
-@media (max-width:600px) {
-   .strokedText{
-   -webkit-text-stroke: 0px rgb(199, 25, 26);
-   
-}
-}
+

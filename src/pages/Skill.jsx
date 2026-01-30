@@ -3,7 +3,7 @@ import NavBar from '../Components/NavBar'
 
 function Skill() {
    return (
-      <div className='w-full font-[myFont] overflow-hidden  lg:h-screen text-gray-200 bg-gray-700'>
+      <div id='skills' className='w-full font-[myFont] overflow-hidden  lg:h-screen text-gray-200 bg-gray-700'>
          <NavBar />
          <div className='w-full min-h-100 lg:p-10 p-5'>
             <h1 className='text-center mb-2 font-bold text-3xl lg:text-[3vw] '><span className='text-teal-500'>Technical </span>skills</h1>

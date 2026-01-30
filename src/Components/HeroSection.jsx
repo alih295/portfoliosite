@@ -1,27 +1,88 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import { motion } from "framer-motion";
 
 function HeroSection() {
-   return (
-      <div className='w-full lg:gap-0 px-5  gap-10 z-10 relative lg:px-10 lg:mt-40  flex  lg:flex-row flex-col items-center justify-between mt-10 font-[myFont]'>
-         <div className='lg:w-[50vw] w-full lg:h-[500px]   rounded-lg flex items-start justify-center flex-col'>
-            <p className='lg:text-2xl text-lg tracking-tight lg:leading-[3.5vw] '>
-               I'm <span className='lg:text-[3vw] text-2xl font-bold  m-2 font-[myFont] text-gray-200  '> Ali Haider</span> , a <span className='lg:text-[3vw] text-4xl strokedText m-2 font-[myfont2] text-teal-500 lg:text-transparent  '> MERN Stack Developer</span>   specializing in creating modern, high-performance web solutions that help businesses grow online.
-            </p>
-            <div className='mt-5 flex  lg:gap-10 gap-5 '>
-               <button className='lg:px-6 px-4 py-2 lg:py-4 rounded-full lg:text-lg text-md capitalize bg-teal-500 lg:font-semibold tracking-normal leading-none shadow-lg shadow-gray-600'><Link to={'/project'}>view my work</Link></button>
-               <button className='lg:px-6 px-4 py-2 lg:py-4 rounded-full lg:text-lg text-md capitalize bg-transparent hover:bg-teal-500 transition-all duration-300 lg:font-semibold tracking-normal leading-none shadow-md shadow-gray-400'><Link to={'/contact'}>Get in Touch</Link></button>
+  return (
+    <motion.section
+      className="
+        w-full min-h-screen
+        flex flex-col items-center justify-center
+        px-5 sm:px-8 md:px-16
+        text-center
+      "
+    >
+      <div className="flex flex-col items-center gap-2 sm:gap-3">
+        <p className="text-sm sm:text-base md:text-lg uppercase tracking-wide">
+          hello
+        </p>
 
-            </div>
-         </div>
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="
+            font-semibold capitalize
+            text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+          "
+        >
+          I'm Ali Haider
+        </motion.h1>
 
+        {/* Desktop only drag */}
+        <motion.h1
+          drag="x"
+          dragConstraints={{ left: -120, right: 120 }}
+          whileDrag={{ scale: 1.15, color: "#14b8a6" }}
+          whileHover={{ scale: 1.05 }}
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="
+            font-bold whitespace-nowrap cursor-grab
+            text-4xl sm:text-5xl md:text-6xl lg:text-7xl
+            hidden md:block
+          "
+        >
+          FullStack Developer
+        </motion.h1>
 
-         <div className='lg:w-[40vw] w-full hover:border-2 border-dashed transition-all duration-200 shadow-lg shadow-gray-700  lg:h-[500px] overflow-hidden rounded-full  flex items-center justify-center'>
-            <img className='  object-cover' src='/img.png' alt="img is not showing" />
-         </div>
-
+        {/* Mobile / Tablet static text */}
+        <h1
+          className="
+            font-bold
+            text-4xl sm:text-5xl md:hidden
+          "
+        >
+          FullStack Developer
+        </h1>
       </div>
-   )
+
+      {/* Buttons */}
+      <div
+        className="
+          mt-6 sm:mt-8
+          flex flex-col sm:flex-row
+          gap-4 sm:gap-5
+          text-base sm:text-lg font-semibold
+        "
+      >
+        <motion.button
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.95 }}
+          className="px-7 py-2 bg-teal-600 text-black rounded-full"
+        >
+          Projects
+        </motion.button>
+
+        <motion.button
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.95 }}
+          className="px-7 py-2 border rounded-full"
+        >
+          Get In Touch
+        </motion.button>
+      </div>
+    </motion.section>
+  );
 }
 
-export default HeroSection
+export default HeroSection;

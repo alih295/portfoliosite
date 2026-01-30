@@ -1,13 +1,19 @@
 import NavBar from "../Components/NavBar";
-import MovingCircle from "../Components/MovingCircle";
 import HeroSection from "../Components/HeroSection";
 import About from "./About";
+import Contact from "./Contact";
+import Skill from './Skill'
+import Project from './Project'
 
 function Home() {
   return (
-    <div className="w-full relative h-screen overflow-hidden text-[#ffff] font-[myFont]  bg-gray-900 ">
+    <div id="home" className="w-full min-h-screen    text-[#ffff] font-[myFont]  bg-gray-900 ">
       <NavBar />
       <HeroSection />
+      <About />
+      <Project />
+      <Contact />
+      <Skill />
     </div>
   );
 }

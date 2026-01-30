@@ -7,7 +7,7 @@ import { IoLocationSharp } from "react-icons/io5";
 
 function Contact() {
    return (
-      <div className='w-full lg:h-screen  text-gray-200 font-[myFont] bg-gray-900'>
+      <div id='contact' className='w-full lg:h-screen  text-gray-200 font-[myFont] bg-gray-900'>
          <NavBar />
          <h1 className='text-center mt-5 font-bold lg:text-[3vw] text-3xl '><span className='text-teal-500'>Get In</span> Touch</h1>
          <p className='text-center text-sm lg:text-md '>Ready to start your next project? Let's discuss how we can work together to bring your ideas to life.</p>
