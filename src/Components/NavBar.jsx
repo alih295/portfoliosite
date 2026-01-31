@@ -23,7 +23,7 @@ function NavBar() {
   };
 
   return (
-    <header className="fixed top-0 w-full z-50 backdrop-blur bg-black/40 border-b border-gray-700">
+    <header className="fixed top-0 left-0 w-full z-50 backdrop-blur bg-black/40 border-b border-gray-700">
       <div className="max-w-7xl mx-auto px-5 lg:px-10 flex items-center justify-between py-4">
 
         {/* Logo */}
@@ -34,9 +34,9 @@ function NavBar() {
         {/* Desktop Nav */}
         <nav className="hidden lg:flex">
           <ul className="flex gap-10 text-gray-400">
-            {navItems.map((item) => (
-              <motion.li
-                key={item.id}
+            {navItems.map((item,idx) => (
+              <motion.li  key={idx}
+              
                 onClick={() => scrollTo(item.id)}
                 className="relative cursor-pointer hover:text-white"
                 whileHover={{ scale: 1.1 }}
@@ -62,8 +62,8 @@ function NavBar() {
         </div>
 
         {/* Mobile Menu Button */}
-        <div onClick={() => setOpen(true)} className="lg:hidden text-2xl cursor-pointer">
-          <FiMenu />
+        <div onClick={() => setOpen(true)} className="lg:hidden text-white  text-2xl cursor-pointer">
+          <FiMenu  />
         </div>
 
         {/* Mobile Drawer */}

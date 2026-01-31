@@ -4,7 +4,7 @@ function HeroSection() {
   return (
     <motion.section
       className="
-        w-full min-h-screen
+        w-full min-h-[70vh]
         flex flex-col items-center justify-center
         px-5 sm:px-8 md:px-16
         text-center
