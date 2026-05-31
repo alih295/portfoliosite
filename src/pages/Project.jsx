@@ -1,57 +1,72 @@
-import React from "react";
-import NavBar from "../Components/NavBar";
 import ProjectsCards from "../Components/ProjectsCards";
 import { motion } from "motion/react";
+
+const projects = [
+  {
+    title: "Food Review Platform",
+    description:
+      "A full-stack solution for discovering food videos in a modern social feed. Users can like, save, and explore restaurant recommendations with a polished interface.",
+    image:
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+    tags: ["Web App", "MERN", "UX"],
+    tech: ["React", "Node", "Express", "MongoDB"],
+    code: "https://github.com/alih295/food-review",
+  },
+  {
+    title: "Employee Management System",
+    description:
+      "A React-powered dashboard that supports employee CRUD workflows, team organization, and smooth local data persistence for quick admin updates.",
+    image:
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+    tags: ["Admin", "Dashboard", "MERN"],
+    tech: ["React", "LocalStorage", "Tailwind"],
+    code: "https://github.com/alih295/employee-management-system",
+  },
+  {
+    title: "Notes CRUD App",
+    description:
+      "A clean note-taking experience built with React. It supports creating, editing, and deleting notes with a layout designed for fast use and readability.",
+    image:
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+    tags: ["Productivity", "React", "UI"],
+    tech: ["React", "JavaScript", "CSS"],
+    code: "https://github.com/alih295/notes-crud-app",
+  },
+];
+
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
 function Project() {
-  const projects = [
-    {
-      title: "food-review",
-      descriptio:
-        "A full-stack web application that lets users explore food videos in a reels-style interface. Users can scroll through short food clips, like their favorites, and save videos to view later — providing an engaging, social-media-like experience for discovering new dishes.",
-    },
-    {
-      title: "Employee management system",
-      descriptio:
-        "A React.js-based web application for managing employee information. It allows users to add, update, and delete employee records using localStorage for data persistence. This project demonstrates CRUD operations and front-end data handling without the need for a backend server.",
-    },
-    {
-      title: "Notes CRUD Application",
-      descriptio:
-        "A simple yet efficient web application that allows users to create, read, update, and delete notes. Built using React.js, it demonstrates essential CRUD operations and provides a clean, user-friendly interface for managing personal notes with real-time updates.",
-    },
-   
-  ];
-
-  const containerVariants = {
-    hidden: {},
-    show: {
-      transition: {
-        staggerChildren: 0.2, // delay between items
-      },
-    },
-  };
-
   return (
-    <motion.div
-     
-      id="projects"
-      className="w-full h-full font-[myFont]  text-gray-200 bg-gray-900"
-    >
-      <h1 className="lg:text-[3vw] text-3xl font-bold text-center mt-10 ">
-        <span className="text-teal-500">Featured</span> Projects
-      </h1>
-      <p className="text-center mt-2 lg:text-lg  text-sm">
-        Here are some of my recent projects that showcase my skills and passion
-        for development
-      </p>
-      <motion.div  variants={containerVariants}
-      initial="hidden"
-      whileInView="show" className="w-full  mt-5 justify-star flex-wrap lg:flex-row flex-col  flex  items-center lg:gap-10  gap-5    ">
-        {projects.map((elem, idx) => {
-          return <ProjectsCards idx={idx} elem={elem} />;
-        })}
+    <section id="projects" className="w-full py-24">
+      <div className="mx-auto max-w-7xl px-5 lg:px-0 text-center">
+        <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Portfolio</p>
+        <h2 className="mt-4 text-4xl font-bold text-white section-heading sm:text-5xl">
+          Selected Works
+        </h2>
+        <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
+          A collection of recent projects that demonstrate my ability to turn complex ideas into polished user experiences.
+        </p>
+      </div>
+
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        className="mx-auto mt-12 grid gap-6 px-5 sm:grid-cols-2 lg:grid-cols-3 lg:max-w-7xl lg:px-0"
+      >
+        {projects.map((elem, idx) => (
+          <ProjectsCards key={idx} elem={elem} />
+        ))}
       </motion.div>
-    </motion.div>
+    </section>
   );
 }
 

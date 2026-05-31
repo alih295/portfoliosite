@@ -1,142 +1,76 @@
-import React from "react";
-import { motion } from "framer-motion";
-import NavBar from "../Components/NavBar";
+import { motion } from "motion/react";
 
-/* ================= VARIANTS ================= */
-
-const container = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.25,
-    },
+const journeyItems = [
+  {
+    title: "Senior Full-Stack Developer",
+    period: "2022 — Present",
+    description: "Leading core engineering at TechFlow, architecting microservices and mentoring junior developers on MERN best practices.",
   },
-};
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: "easeOut" },
+  {
+    title: "Freelance Engineer",
+    period: "2020 — 2022",
+    description: "Delivered high-performance MVPs for startups with rapid deployment, cloud scaling, and polished frontend interfaces.",
   },
-};
-
-const barContainer = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.15,
-    },
+  {
+    title: "Frontend Lead",
+    period: "2018 — 2020",
+    description: "Spearheaded UI migration from legacy systems to React-based architectures for e-commerce and enterprise platforms.",
   },
-};
+];
 
-const barFill = {
-  hidden: { width: 0 },
-  show: (width) => ({
-    width,
-    transition: { duration: 1.2, ease: "easeOut" },
-  }),
-};
-
-/* ================= SKILL BAR ================= */
-
-function SkillBar({ label, percent }) {
-  return (
-    <motion.div variants={fadeUp} className="w-full mt-8">
-      <div className="flex justify-between mb-1">
-        <p>{label}</p>
-        <p>{percent}%</p>
-      </div>
-
-      <div className="w-full h-3 bg-gray-600 rounded-full overflow-hidden">
-        <motion.div
-          className="h-full bg-teal-500 rounded-full shadow-[0_0_15px_rgba(20,184,166,0.6)]"
-          variants={barFill}
-          custom={`${percent}%`}
-        />
-      </div>
-    </motion.div>
-  );
-}
-
-/* ================= MAIN COMPONENT ================= */
+const skillTags = [
+  "React.js",
+  "Node.js",
+  "Express.js",
+  "MongoDB",
+  "Tailwind CSS",
+  "JavaScript",
+  "HTML / CSS",
+  "Git & GitHub",
+];
 
 function Skill() {
   return (
-    <div
-      id="skills"
-      className="w-full font-[myFont] overflow-hidden lg:h-screen text-gray-200"
-    >
-      <NavBar />
+    <section id="skills" className="w-full py-24">
+      <div className="mx-auto max-w-7xl px-5 lg:px-0">
+        <div className="mb-10 text-center">
+          <p className="text-sm uppercase tracking-[0.4em] text-slate-400">The Journey</p>
+          <h2 className="mt-4 text-4xl font-bold text-white section-heading sm:text-5xl">
+            Career milestones and technical strengths.
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
+            My experience is shaped by complex projects, meaningful product delivery, and continuous growth across the full-stack.
+          </p>
+        </div>
 
-      <div className="w-full min-h-100 px-5 lg:px-20">
-        {/* Heading */}
-        <motion.h1
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-         
-          className="text-center mb-2 font-bold text-3xl lg:text-[3vw]"
-        >
-          <span className="text-teal-500">Technical </span>Skills
-        </motion.h1>
-
-        <motion.p
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-        
-          className="text-center lg:text-lg text-md"
-        >
-          My expertise covers a diverse range of web development technologies and
-          tools.
-        </motion.p>
-
-        {/* Skills Container */}
         <motion.div
-          className="w-full lg:h-[60vh] lg:flex-row flex-col flex items-center justify-between rounded-lg lg:mt-20 mt-10 bg-gray-900"
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-         
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="glass-card rounded-[2rem] border border-white/10 p-8"
         >
-          {/* Frontend */}
-          <motion.div
-            className="lg:w-[48%] w-full p-5"
-            variants={fadeUp}
-          >
-            <h1 className="text-center text-2xl font-semibold mb-10">
-              Frontend Development
-            </h1>
-
-            <motion.div variants={barContainer}>
-              <SkillBar label="HTML / CSS" percent={95} />
-              <SkillBar label="Tailwind CSS" percent={90} />
-              <SkillBar label="JavaScript" percent={80} />
-              <SkillBar label="React.js" percent={90} />
-            </motion.div>
-          </motion.div>
-
-          {/* Backend */}
-          <motion.div
-            className="lg:w-[48%] w-full p-5"
-            variants={fadeUp}
-          >
-            <h1 className="text-center text-2xl font-semibold mb-10">
-              Backend & Tools
-            </h1>
-
-            <motion.div variants={barContainer}>
-              <SkillBar label="Node.js" percent={70} />
-              <SkillBar label="Express.js" percent={85} />
-              <SkillBar label="MongoDB" percent={90} />
-              <SkillBar label="Git & GitHub" percent={95} />
-            </motion.div>
-          </motion.div>
+          <div className="space-y-10">
+            {journeyItems.map((item) => (
+              <div key={item.title} className="flex flex-col gap-4 border-b border-white/10 pb-8 last:border-b-0 last:pb-0">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <h3 className="text-xl font-semibold text-white">{item.title}</h3>
+                  <span className="badge badge-secondary">{item.period}</span>
+                </div>
+                <p className="text-slate-300 leading-7">{item.description}</p>
+              </div>
+            ))}
+          </div>
         </motion.div>
+
+        <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {skillTags.map((tag) => (
+            <span key={tag} className="badge badge-primary">
+              {tag}
+            </span>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 

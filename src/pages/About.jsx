@@ -1,51 +1,86 @@
-import React from 'react'
-import NavBar from '../Components/NavBar'
-import { easeIn, motion } from 'motion/react'
+import { motion } from "motion/react";
+
+const techTags = [
+  "React.js",
+  "Node.js",
+  "Express.js",
+  "MongoDB",
+  "Tailwind CSS",
+  "MERN Stack",
+];
 
 function About() {
-   return (
-      <>
+  return (
+    <section id="about" className="w-full py-24">
+      <div className="mx-auto max-w-7xl px-5 lg:px-0">
+        <div className="mb-10 text-center">
+          <p className="text-sm uppercase tracking-[0.4em] text-slate-400">About me</p>
+          <h2 className="mt-4 text-4xl font-bold text-white section-heading sm:text-5xl">
+            The Craft Behind The Code
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
+            I specialize in architecting complex web ecosystems that are as beautiful as they are functional. My approach combines technical rigor with a deep understanding of user psychology.
+          </p>
+        </div>
 
-         <motion.div transition={{
-            duration: 1
-         }} initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }} className='w-full  h-full font-semibold text-gray-200   font-[myFont]'>
-
-            <div id='about' className=' min-h-[30vh] '>
-
-
-               <motion.h1 whileInView={{ y: 20 }} className='lg:text-[4vw] mt-10 text-4xl text-center capitalize'>
-                  <span className='text-teal-500'>about</span> me</motion.h1>
-               <div className='w-full lg:h-[70%] h-full flex lg:flex-row flex-col items-center justify-between p-5 overflow-hidden rounded-2xl mt-10 shadow-md shadow-gray-600 '>
-
-                  <motion.div transition={{duration:0.6, ease:"easeIn"}} initial={{ opacity: 0, y: 50 }} whileHover={{border:"2px dashed teal"}} whileInView={{ opacity: 1, y: 0 }} className=' w-full h-full  p-5 rounded-lg'>
-                     <h1 className='font-[myfont2] text-2xl font-bold'>Transforming Ideas Into Powerful Web Experiences </h1>
-
-                     <p className='font-[myFont] text-md font-light mt-5'>Hello! I'm Ali Haider, a passionate and detail-oriented MERN Stack Developer dedicated to crafting high-quality, dynamic, and scalable web applications.
-                        From concept to deployment, I bring ideas to life through clean code, modern design, and seamless user experiences.</p>
-                     <p className='font-[myFont] text-md font-light  mt-5'> My journey in development began with curiosity and evolved into a mission — to create digital products that are not just functional, but meaningful.
-                        I take pride in writing efficient, maintainable code and designing systems that balance performance, security, and creativity.</p>
-
-                     <p className='text-md flex leading-10  mt-5 mb-5 '>
-
-                        ⚙️ MERN Stack Development  <br />
-                        🎨 Responsive Design  <br />
-                        🚀 Backend Engineering
-                     </p>
-
-                     <p className='font-[myFont] text-md font-light  mt-5'>
-                        I believe great software is built on clarity, innovation, and purpose — and every project is a step toward redefining digital excellence.
-
-                     </p>
-
-
-
-                  </motion.div>
-               </div>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="grid gap-8 lg:grid-cols-[0.95fr_0.9fr]"
+        >
+          <div className="relative overflow-hidden rounded-4xl border border-white/10 bg-[#0b1119]/80 p-4 shadow-[0_24px_60px_rgba(0,0,0,0.25)] lg:p-6">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(61,144,255,0.16),transparent_35%)]" />
+            <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#0b1119]">
+              <img
+                src="/images/about.jpg"
+                alt="About Ali Haider"
+                className="h-full w-full object-cover"
+              />
             </div>
-         </motion.div>
-      </>
-   )
+            <div className="absolute bottom-6 left-6 rounded-3xl border border-white/10 bg-[#0b1119]/95 p-5 shadow-[0_20px_40px_rgba(0,0,0,0.25)]">
+              <p className="text-xs uppercase tracking-[0.35em] text-slate-400">Experience</p>
+              <p className="mt-3 text-3xl font-bold text-white">5+ Years</p>
+              <p className="mt-2 max-w-[16rem] text-sm leading-6 text-slate-300">Working on modern MERN applications with polished UI and architecture.</p>
+            </div>
+          </div>
+
+          <div className="glass-card rounded-4xl border border-white/10 p-8 lg:p-10">
+            <div className="space-y-8">
+              <div className="rounded-[1.75rem] border border-white/10 bg-[#0b1119] p-6">
+                <p className="text-xs uppercase tracking-[0.35em] text-slate-500">Profile</p>
+                <h3 className="mt-4 text-2xl font-bold text-white">Transforming ideas into powerful web experiences.</h3>
+                <p className="mt-4 text-slate-300 leading-8">
+                  Hello! I'm Ali Haider, a passionate MERN Stack developer dedicated to crafting high-quality, dynamic, and scalable web applications. From concept to deployment, I bring ideas to life through clean code, modern design, and seamless user experiences.
+                </p>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="glass-panel rounded-[1.4rem] p-5">
+                  <p className="text-xs uppercase tracking-[0.35em] text-slate-500">Experience</p>
+                  <p className="mt-4 text-3xl font-bold text-white">5+ Years</p>
+                  <p className="mt-2 text-slate-300 leading-7">Building production-ready applications with the MERN stack.</p>
+                </div>
+                <div className="glass-panel rounded-[1.4rem] p-5">
+                  <p className="text-xs uppercase tracking-[0.35em] text-slate-500">Focus</p>
+                  <p className="mt-4 text-3xl font-bold text-white">Scalable Systems</p>
+                  <p className="mt-2 text-slate-300 leading-7">Modern architecture, clean data flows, and polished UX for enterprise-level apps.</p>
+                </div>
+              </div>
+
+              <div className="grid gap-3 sm:grid-cols-2">
+                {techTags.map((tag) => (
+                  <span key={tag} className="badge badge-primary">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
 }
 
-export default About
+export default About;

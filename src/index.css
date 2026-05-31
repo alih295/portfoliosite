@@ -1,19 +1,169 @@
 @import "tailwindcss";
 
 @font-face {
-   font-family: 'myFont';
-   src: url('/fonts/gilroy/Gilroy-Regular.ttf') format('truetype');
+  font-family: 'myFont';
+  src: url('/fonts/gilroy/Gilroy-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
 }
 
 @font-face {
-   font-family: myfont2;
-   src: url('/fonts/gilroy/Gilroy-Black.ttf');
+  font-family: 'myFont2';
+  src: url('/fonts/gilroy/Gilroy-Black.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
 }
 
-@root{
-   --black:rgb(0,0,0),
-   --secondary:rgb(109,0,26),
-   --white:rgb(255,255,255)
+:root {
+  --surface: #111415;
+  --surface-dim: #0c0f10;
+  --surface-bright: #37393b;
+  --surface-container: #1d2022;
+  --surface-container-high: #282a2c;
+  --on-surface: #e1e2e4;
+  --on-surface-variant: #c2c6d6;
+  --outline: #8c909f;
+  --primary: #adc6ff;
+  --on-primary: #002e6a;
+  --secondary: #4edea3;
+  --background: #111415;
+  --background-strong: #090b0d;
+  --glass: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-border-strong: rgba(255, 255, 255, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* overflow-x ko yahan se hata diya */
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  /* Pure page ke liye overflow control sirf yahan handle hoga */
+  overflow-x: hidden; 
+  overflow-y: auto;
+  background: radial-gradient(circle at top left, rgba(61, 144, 255, 0.18), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(78, 222, 163, 0.1), transparent 18%),
+    var(--background);
+  color: var(--on-surface);
+  font-family: 'myFont', Inter, system-ui, sans-serif;
+}
+
+#root {
+  
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 30%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+input,
+textarea {
+  color: var(--on-surface);
+}
+
+.glass-card {
+  background: rgba(17, 20, 21, 0.72);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.25);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+}
+
+.btn-primary {
+  background: rgba(173, 198, 255, 0.16);
+  color: var(--on-surface);
+  border: 1px solid rgba(173, 198, 255, 0.28);
+}
+
+.btn-secondary {
+  background: rgba(78, 222, 163, 0.16);
+  color: var(--on-surface);
+  border: 1px solid rgba(78, 222, 163, 0.28);
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.section-heading {
+  letter-spacing: -0.03em;
+}
+
+.section-subtitle {
+  color: var(--on-surface-variant);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--on-surface);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.badge-primary {
+  background: rgba(173, 198, 255, 0.12);
+  border-color: rgba(173, 198, 255, 0.28);
+  color: var(--primary);
+}
+
+.badge-secondary {
+  background: rgba(78, 222, 163, 0.14);
+  border-color: rgba(78, 222, 163, 0.28);
+  color: var(--secondary);
+}
+
+.text-primary {
+  color: var(--primary) !important;
+}
+
+.text-secondary {
+  color: var(--secondary) !important;
+}
+
+.bg-primary {
+  background-color: rgba(173, 198, 255, 0.16) !important;
+}
+
+.bg-secondary {
+  background-color: rgba(78, 222, 163, 0.16) !important;
+}
+
+@media (max-width: 768px) {
+  .glass-card {
+    border-radius: 1.5rem;
+  }
 }
 
 

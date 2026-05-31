@@ -1,13 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaFacebookF } from "react-icons/fa";
 import { BsGithub } from "react-icons/bs";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { FiMenu } from "react-icons/fi";
 import { RxCross1 } from "react-icons/rx";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 
 function NavBar() {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "auto";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [open]);
 
   const navItems = [
     { name: "Home", id: "home" },
@@ -23,78 +30,92 @@ function NavBar() {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 backdrop-blur bg-black/40 border-b border-gray-700">
-      <div className="max-w-7xl mx-auto px-5 lg:px-10 flex items-center justify-between py-4">
+    <header className="fixed top-0 left-0 w-full z-50 border-b border-white/10 bg-[#080a0d]/70 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4 lg:px-10">
+        <div className="flex items-center gap-3">
+          <div className="h-10 w-10 rounded-2xl border border-white/10 bg-white/5 flex items-center justify-center text-lg font-black text-primary">
+            M
+          </div>
+          <span className="text-base font-semibold text-slate-100">MERN.DEV</span>
+        </div>
 
-        {/* Logo */}
-        <h1 className="text-2xl lg:text-3xl text-teal-500 font-semibold">
-          Ali Haider
-        </h1>
-
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex">
-          <ul className="flex gap-10 text-gray-400">
-            {navItems.map((item,idx) => (
-              <motion.li  key={idx}
-              
-                onClick={() => scrollTo(item.id)}
-                className="relative cursor-pointer hover:text-white"
-                whileHover={{ scale: 1.1 }}
-              >
-                {item.name}
-                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-teal-500 transition-all group-hover:w-full" />
-              </motion.li>
-            ))}
-          </ul>
+        <nav className="hidden items-center gap-10 lg:flex text-sm text-slate-300">
+          {navItems.map((item) => (
+            <motion.button
+              key={item.id}
+              type="button"
+              onClick={() => scrollTo(item.id)}
+              whileHover={{ y: -2 }}
+              className="transition-colors duration-200 hover:text-white"
+            >
+              {item.name}
+            </motion.button>
+          ))}
         </nav>
 
-        {/* Desktop Socials */}
-        <div className="hidden lg:flex gap-4">
-          <motion.a whileHover={{ scale: 1.2 }} href="https://www.facebook.com/alihaider.asgharali.96" target="_blank">
-            <FaFacebookF />
-          </motion.a>
-          <motion.a whileHover={{ scale: 1.2 }} href="https://github.com/alih295" target="_blank">
+        <div className="hidden items-center gap-4 lg:flex">
+          <a
+            href="https://github.com/alih295"
+            target="_blank"
+            rel="noreferrer"
+            className="text-slate-200 transition hover:text-white"
+          >
             <BsGithub />
-          </motion.a>
-          <motion.a whileHover={{ scale: 1.2 }} href="https://www.linkedin.com/in/hafiz-ali-haider-asghar-987992368/" target="_blank">
+          </a>
+          <a
+            href="https://www.linkedin.com/in/hafiz-ali-haider-asghar-987992368/"
+            target="_blank"
+            rel="noreferrer"
+            className="text-slate-200 transition hover:text-white"
+          >
             <FaLinkedinIn />
-          </motion.a>
+          </a>
+          <button
+            type="button"
+            onClick={() => scrollTo("contact")}
+            className="btn-secondary rounded-full px-5 py-2 text-sm font-semibold"
+          >
+            Contact
+          </button>
         </div>
 
-        {/* Mobile Menu Button */}
-        <div onClick={() => setOpen(true)} className="lg:hidden text-white  text-2xl cursor-pointer">
-          <FiMenu  />
-        </div>
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          className="lg:hidden text-2xl text-slate-100"
+        >
+          <FiMenu />
+        </button>
 
-        {/* Mobile Drawer */}
         <AnimatePresence>
           {open && (
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-              className="fixed top-0 right-0 w-[70%] h-screen bg-black text-white p-6 z-50"
+              transition={{ duration: 0.35, ease: "easeOut" }}
+              className="fixed top-0 right-0 z-50 h-screen w-[70%] bg-[#0b1016] p-6 shadow-2xl"
             >
-              <div className="flex justify-end mb-10">
-                <RxCross1 onClick={() => setOpen(false)} className="text-2xl cursor-pointer" />
+              <div className="flex justify-end">
+                <button type="button" onClick={() => setOpen(false)} className="text-2xl text-slate-200">
+                  <RxCross1 />
+                </button>
               </div>
-
-              <ul className="flex flex-col gap-6 text-lg">
+              <div className="mt-10 flex flex-col gap-6 text-lg text-slate-200">
                 {navItems.map((item) => (
-                  <li
+                  <button
                     key={item.id}
+                    type="button"
                     onClick={() => scrollTo(item.id)}
-                    className="border-b border-gray-600 pb-2 cursor-pointer"
+                    className="rounded-2xl border border-white/10 bg-white/5 p-4 text-left transition hover:border-primary"
                   >
                     {item.name}
-                  </li>
+                  </button>
                 ))}
-              </ul>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
-
       </div>
     </header>
   );
