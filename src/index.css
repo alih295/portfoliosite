@@ -45,9 +45,7 @@ html {
 body {
   min-height: 100vh;
   margin: 0;
-  /* Pure page ke liye overflow control sirf yahan handle hoga */
-  overflow-x: hidden; 
-  overflow-y: auto;
+ 
   background: radial-gradient(circle at top left, rgba(61, 144, 255, 0.18), transparent 24%),
     radial-gradient(circle at bottom right, rgba(78, 222, 163, 0.1), transparent 18%),
     var(--background);
@@ -55,18 +53,12 @@ body {
   font-family: 'myFont', Inter, system-ui, sans-serif;
 }
 
-#root {
-  
-  overflow-x: hidden;
-}
+
 
 body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
+ 
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 30%);
-  pointer-events: none;
-  z-index: -1;
+
 }
 
 button,
