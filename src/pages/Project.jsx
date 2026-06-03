@@ -1,94 +1,109 @@
-import ProjectsCards from "../Components/ProjectsCards";
 import { motion } from "motion/react";
-import { IoIosCode } from "react-icons/io";
-import { RxExternalLink } from "react-icons/rx";
-
-const projects = [
-  {
-    title: "Food Review Platform",
-    description:
-      "A full-stack solution for discovering food videos in a modern social feed. Users can like, save, and explore restaurant recommendations with a polished interface.",
-    image:
-      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
-    tags: ["Web App", "MERN", "UX"],
-    tech: ["React", "Node", "Express", "MongoDB"],
-    code: "https://github.com/alih295/food-review",
-  },
-  {
-    title: "Employee Management System",
-    description:
-      "A React-powered dashboard that supports employee CRUD workflows, team organization, and smooth local data persistence for quick admin updates.",
-    image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
-    tags: ["Admin", "Dashboard", "MERN"],
-    tech: ["React", "LocalStorage", "Tailwind"],
-    code: "https://github.com/alih295/employee-management-system",
-  },
-  {
-    title: "Notes CRUD App",
-    description:
-      "A clean note-taking experience built with React. It supports creating, editing, and deleting notes with a layout designed for fast use and readability.",
-    image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
-    tags: ["Productivity", "React", "UI"],
-    tech: ["React", "JavaScript", "CSS"],
-    code: "https://github.com/alih295/notes-crud-app",
-  },
-];
-
-const containerVariants = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
+import { Link } from "react-router-dom";
+import { useAppContext } from "../context/AppContext";
 
 function Project() {
+  const { projects } = useAppContext();
+  
+  // First project is featured, rest are smaller
+  const featured = projects[0];
+  const smaller = projects.slice(1, 3);
+
   return (
-    <section id="projects" className="w-full min-h-screen mt-30">
-      <div className="mx-auto max-w-7xl px-5 lg:px-0 ">
-        <p className="text-sm uppercase tracking-[0.35em] text-green-400">Portfolio</p>
-        <h2 className="mt-4 text-4xl font-bold text-white section-heading sm:text-5xl">
-          Selected Works
-        </h2>
-
-      </div>
-
+    <section id="work" className="py-16 md:py-24 px-4 md:px-20 max-w-7xl mx-auto">
       <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="show"
-        className="mx-auto mt-12 grid gap-6 px-5  lg:max-w-7xl lg:px-0"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="flex justify-between items-end mb-12"
       >
-        <div className="w-full h-screen  flex items-center  justify-between " >
-          <div className="w-[67%] rounded-xl p-5 group px-10 flex flex-col  justify-start gap-5  h-full border border-white/50 hover:border-white hover:shadow-lg shadow-green-400/20 transition-all duration-300 hover:scale-102">
-            <img className="w-full transition-scale duration-300 group-hover:scale-105 h-[60%] rounded-xl object-cover " src="./projectImg/admin.png" alt="" />
-            <div className="w-full flex items-center justify-between"><h1>Digital Attendance System</h1>
-              <div className="flex items-center justify-center gap-5 text-2xl font-bold"><a target="blank" href="https://github.com/alih295/digital-attendance-system" className="font-bold hover:text-green-400 transition-colors duration-200 cursor-pointer"><IoIosCode /> </a>  <a target="blank" href="https://digital-attendance-system-nine.vercel.app/" className="font-bold hover:text-green-400 transition-colors duration-200 cursor-pointer"><RxExternalLink /></a> </div>
-            </div>
-            <p className="text-gray-300">QR-based Attendance System featuring Admin, Teacher, and Student portals. It tracks real-time, secure, and contactless attendance via QR scans.</p>
-
-          </div>
-          <div className="w-[29%] h-full flex flex-col items-center justify-between ">
-            <div className="w-full h-[48%] group border border-white/50 hover:border-white hover:shadow-lg shadow-green-400/20 transition-all duration-300 hover:scale-102 p-5 rounded-xl flex flex-col gap-2">
-              <img className="w-full h-[70%] group-hover:scale-102 transition-scale duration-300 rounded-xl object-cover object-center" src="./projectImg/grocery-store.png" alt="" />
-              <h1 className="text-2xl font-semibold">Grocery Store
-              </h1>
-              <p className="text-sm font-normal text-gray-300">Smart online grocery store for fresh daily essentials delivered fast.</p>
-              </div>
-            <div className="w-full h-[48%] group border border-white/50 hover:border-white hover:shadow-lg shadow-green-400/20 transition-all duration-300 hover:scale-102 p-5 rounded-xl flex flex-col gap-2">
-              <img className="w-full h-[70%] group-hover:scale-102 transition-scale duration-300 rounded-xl object-cover object-center" src="./projectImg/Ngrok.png" alt="" />
-              <h1 className="text-2xl font-semibold">Ngrok UI Clone
-              </h1>
-              <p className="text-sm font-normal text-gray-300">Pixel-perfect frontend clone of the official ngrok website UI.</p>
-              </div>
-           
-          </div>
-
+        <div>
+          <span className="text-secondary font-label-md text-label-md tracking-widest uppercase mb-2 block">Portfolio</span>
+          <h2 className="font-headline-lg text-headline-lg text-on-surface">Selected Works</h2>
         </div>
+        <motion.div
+          whileHover={{ x: 4 }}
+          className="hidden md:block"
+        >
+          <Link to={'/project'} className="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors flex items-center gap-2">
+            All Projects <span className="text-lg">→</span>
+          </Link>
+        </motion.div>
       </motion.div>
+
+      {/* Bento Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-12 grid-rows-none md:grid-rows-2 gap-3 md:gap-6">
+        
+        {/* Featured Project - Large */}
+        {featured && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="md:col-span-8 md:row-span-2 bento-card rounded-3xl p-4 md:p-8 flex flex-col group h-full"
+          >
+            <div className="overflow-hidden rounded-2xl aspect-video mb-6">
+              <img
+                alt={featured.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                src={featured.image}
+              />
+            </div>
+            
+            <div className="flex justify-between items-start mb-4">
+              <h3 className="font-headline-md text-headline-md text-on-surface">{featured.title}</h3>
+              <div className="flex gap-3">
+                {featured.code && (
+                  <a href={featured.code} target="_blank" rel="noreferrer" className="text-on-surface-variant hover:text-primary cursor-pointer transition-colors">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"></path>
+                    </svg>
+                  </a>
+                )}
+                {featured.demo && (
+                  <a href={featured.demo} target="_blank" rel="noreferrer" className="text-on-surface-variant hover:text-primary cursor-pointer transition-colors">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm0 2c1.657 0 3 1.343 3 3v14c0 1.657-1.343 3-3 3h-14c-1.657 0-3-1.343-3-3v-14c0-1.657 1.343-3 3-3h14z"></path>
+                    </svg>
+                  </a>
+                )}
+              </div>
+            </div>
+            
+            <p className="text-on-surface-variant text-body-md mb-6 grow">{featured.description}</p>
+            
+            <div className="flex flex-wrap gap-2">
+              {featured.tags?.map((tag, idx) => (
+                <span key={idx} className="px-3 py-1 bg-surface-container rounded text-label-md text-xs text-secondary border border-secondary/20">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+        )}
+
+        {/* Smaller Cards */}
+        {smaller.map((project, idx) => (
+          <motion.div
+            key={project.title}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 + idx * 0.1 }}
+            className="md:col-span-4 bento-card rounded-3xl p-4 md:p-6 group"
+          >
+            <div className="overflow-hidden rounded-xl aspect-4/3 mb-4">
+              <img
+                alt={project.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                src={project.image}
+              />
+            </div>
+            
+            <h3 className="font-headline-md text-headline-md mb-2 text-on-surface text-xl">{project.title}</h3>
+            <p className="text-on-surface-variant text-body-md text-sm line-clamp-2">{project.description}</p>
+          </motion.div>
+        ))}
+      </div>
     </section>
   );
 }

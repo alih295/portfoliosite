@@ -1,115 +1,130 @@
 import { motion } from "motion/react";
-import { HiOutlineMailOpen } from "react-icons/hi";
-import { FaPhoneAlt } from "react-icons/fa";
-import { IoLocationSharp } from "react-icons/io5";
-import { MdOutlineMail } from "react-icons/md";
-
-
-const contactCards = [
-  {
-    label: "Email",
-    value: "alihaider295tts@gmail.com",
-    icon: <HiOutlineMailOpen className="text-2xl" />,
-  },
-  {
-    label: "Phone",
-    value: "+92 307 513 3794",
-    icon: <FaPhoneAlt className="text-2xl" />,
-  },
-  {
-    label: "Location",
-    value: "Toba Tek Singh, Punjab, Pakistan",
-    icon: <IoLocationSharp className="text-2xl" />,
-  },
-];
+import { BsGithub } from "react-icons/bs";
+import { FaLinkedinIn } from "react-icons/fa6";
 
 function Contact() {
   return (
-    <motion.section
-      id="contact"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className="w-full min-h-screen bg-[#061113]/80 backdrop-blur-2xl rounded-[2rem] border border-white/10 p-8 shadow-xl shadow-black/20 transition-all duration-300 hover:shadow-[0_0_40px_rgba(78,237,163,0.25)] hover:scale-[1.01]"
-    >
-      <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-2 lg:gap-12">
-        <motion.div
-          whileHover={{ y: -4 }}
-          className="flex flex-col justify-between gap-8"
-        >
-          <div>
-            <h3 className="text-5xl font-semibold leading-[0.95] text-white">
-              <span className="block">Let's Build</span>
-              <span className="block">Something</span>
-              <span className="block text-[#4edea3]">Exceptional.</span>
-            </h3>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300">
+    <section id="contact" className="py-16 md:py-24 px-4 md:px-20 max-w-7xl mx-auto">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="bento-card rounded-2xl md:rounded-[40px] p-6 md:p-12 overflow-hidden relative"
+      >
+        {/* Gradient Blur Background */}
+        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 blur-[100px] rounded-full"></div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 relative z-10">
+          
+          {/* Left Side - Contact Info */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            <h2 className="font-headline-lg text-headline-lg text-on-surface mb-6">
+              Let's Build Something<br/>
+              <span className="text-secondary">Exceptional.</span>
+            </h2>
+            
+            <p className="text-on-surface-variant text-body-lg mb-12">
               I'm currently available for senior roles and high-impact freelance projects. Reach out and let's discuss your vision.
             </p>
-          </div>
 
-          <div className="grid gap-5">
-            <div className="flex items-center gap-4 rounded-[2rem] border border-white/10 bg-white/5 p-5 shadow-sm shadow-black/20">
-              <div className="flex h-16 w-16 items-center justify-center rounded-[1.5rem] bg-[#0f191b] text-2xl text-[#4edea3]">
-                <MdOutlineMail />
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-[0.3em] text-slate-400">Email</p>
-                <p className="mt-2 text-lg font-semibold text-white">hahservices295@gmail.com</p>
+            {/* Email Contact */}
+            <div className="space-y-6">
+              <a href="mailto:alihaider295tts@gmail.com" className="flex items-center gap-4 group">
+                <div className="w-12 h-12 rounded-xl bento-card flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div className="text-label-md text-xs text-on-surface-variant">EMAIL</div>
+                  <div className="text-body-md font-bold">alihaider295tts@gmail.com</div>
+                </div>
+              </a>
+
+              {/* Social Links */}
+              <div className="flex gap-4 pt-4">
+                <motion.a
+                  whileHover={{ scale: 1.1 }}
+                  href="https://github.com/alih295"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-12 h-12 rounded-xl bento-card flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors"
+                >
+                  <BsGithub size={20} />
+                </motion.a>
+                
+                <motion.a
+                  whileHover={{ scale: 1.1 }}
+                  href="https://www.linkedin.com/in/hafiz-ali-haider-asghar-987992368/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-12 h-12 rounded-xl bento-card flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors"
+                >
+                  <FaLinkedinIn size={20} />
+                </motion.a>
+
+                <motion.a
+                  whileHover={{ scale: 1.1 }}
+                  href="#"
+                  className="w-12 h-12 rounded-xl bento-card flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
+                  </svg>
+                </motion.a>
               </div>
             </div>
+          </motion.div>
 
-            <div className="grid grid-cols-3 gap-4">
-              <button className="flex h-14 w-full items-center justify-center rounded-3xl border border-white/10 bg-white/5 text-slate-200 transition hover:border-[#4edea3]/30 hover:bg-[#0f191b]">
-                <HiOutlineMailOpen className="text-xl" />
-              </button>
-              <button className="flex h-14 w-full items-center justify-center rounded-3xl border border-white/10 bg-white/5 text-slate-200 transition hover:border-[#4edea3]/30 hover:bg-[#0f191b]">
-                <FaPhoneAlt className="text-xl" />
-              </button>
-              <button className="flex h-14 w-full items-center justify-center rounded-3xl border border-white/10 bg-white/5 text-slate-200 transition hover:border-[#4edea3]/30 hover:bg-[#0f191b]">
-                <IoLocationSharp className="text-xl" />
-              </button>
-            </div>
-          </div>
-        </motion.div>
-
-        <motion.div whileHover={{ y: -4 }} className="rounded-[2rem] border border-white/10 bg-[#071014]/90 p-8 shadow-xl shadow-black/20">
-          <h3 className="text-2xl font-semibold text-white">Send a message</h3>
-          <form className="mt-8 space-y-6">
-            <div>
-              <label className="mb-3 block text-sm font-medium text-slate-300">Full Name</label>
+          {/* Right Side - Form */}
+          <motion.form
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2 }}
+            className="space-y-6"
+          >
+            <div className="space-y-2">
+              <label className="text-label-md text-on-surface-variant">Full Name</label>
               <input
                 type="text"
                 placeholder="John Doe"
-                className="w-full rounded-2xl border border-white/10 bg-[#0c141c]/90 px-5 py-4 text-slate-100 outline-none transition focus:border-[#4edea3] focus:ring-2 focus:ring-[#4edea3]/20"
+                className="w-full bg-surface-container-low border-b border-outline-variant focus:border-primary focus:ring-0 transition-all text-on-surface py-3 px-0 placeholder:text-outline-variant"
               />
             </div>
-            <div>
-              <label className="mb-3 block text-sm font-medium text-slate-300">Work Email</label>
+
+            <div className="space-y-2">
+              <label className="text-label-md text-on-surface-variant">Work Email</label>
               <input
                 type="email"
                 placeholder="john@company.com"
-                className="w-full rounded-2xl border border-white/10 bg-[#0c141c]/90 px-5 py-4 text-slate-100 outline-none transition focus:border-[#4edea3] focus:ring-2 focus:ring-[#4edea3]/20"
+                className="w-full bg-surface-container-low border-b border-outline-variant focus:border-primary focus:ring-0 transition-all text-on-surface py-3 px-0 placeholder:text-outline-variant"
               />
             </div>
-            <div>
-              <label className="mb-3 block text-sm font-medium text-slate-300">Message</label>
+
+            <div className="space-y-2">
+              <label className="text-label-md text-on-surface-variant">Message</label>
               <textarea
-                rows="6"
                 placeholder="Tell me about your project..."
-                className="w-full rounded-2xl border border-white/10 bg-[#0c141c]/90 px-5 py-4 text-slate-100 outline-none transition focus:border-[#4edea3] focus:ring-2 focus:ring-[#4edea3]/20"
-              />
+                rows="4"
+                className="w-full bg-surface-container-low border-b border-outline-variant focus:border-primary focus:ring-0 transition-all text-on-surface py-3 px-0 placeholder:text-outline-variant resize-none"
+              ></textarea>
             </div>
+
             <button
               type="submit"
-              className="w-full rounded-full bg-[#a8c8ff] px-6 py-4 text-base font-semibold text-slate-900 transition hover:bg-[#93b8ff]"
+              className="w-full bg-primary text-on-primary py-4 rounded-xl font-headline-md text-lg hover:shadow-[0_0_20px_rgba(173,198,255,0.4)] transition-all active:scale-95"
             >
               Send Inquiry
             </button>
-          </form>
-        </motion.div>
-      </div>
-    </motion.section>
+          </motion.form>
+        </div>
+      </motion.div>
+    </section>
   );
 }
 

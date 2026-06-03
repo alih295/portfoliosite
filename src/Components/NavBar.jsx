@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { FaFacebookF } from "react-icons/fa";
 import { BsGithub } from "react-icons/bs";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { FiMenu } from "react-icons/fi";
@@ -17,10 +16,8 @@ function NavBar() {
   }, [open]);
 
   const navItems = [
-    { name: "Home", id: "home" },
+    { name: "Work", id: "work" },
     { name: "About", id: "about" },
-    { name: "Skills", id: "skills" },
-    { name: "Projects", id: "projects" },
     { name: "Contact", id: "contact" },
   ];
 
@@ -30,93 +27,88 @@ function NavBar() {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 border-b border-white/10 bg-[#080a0d]/70 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4 lg:px-10">
-        <div className="flex items-center gap-3">
-          <div className="h-10 w-10 rounded-2xl border border-white/10 bg-white/5 flex items-center justify-center text-lg font-black text-primary">
-            M
-          </div>
-          <span className="text-base font-semibold text-slate-100">MERN.DEV</span>
-        </div>
-
-        <nav className="hidden items-center gap-10 lg:flex text-sm text-slate-300">
-          {navItems.map((item) => (
-            <motion.button
-              key={item.id}
-              type="button"
-              onClick={() => scrollTo(item.id)}
-              whileHover={{ y: -2 }}
-              className="transition-colors duration-200 hover:text-white"
-            >
-              {item.name}
-            </motion.button>
-          ))}
-        </nav>
-
-        <div className="hidden items-center gap-4 lg:flex">
-          <a
-            href="https://github.com/alih295"
-            target="_blank"
-            rel="noreferrer"
-            className="text-slate-200 transition hover:text-white"
+    <header className="fixed top-0 w-full z-50 flex justify-between items-center px-4 md:px-20 py-3 md:py-4 max-w-7xl mx-auto bg-surface/30 backdrop-blur-xl border-b border-outline-variant/10\">
+      <div className="text-body-lg font-headline-lg-mobile font-bold tracking-tighter text-on-surface">MERN.DEV</div>
+      
+      <nav className="hidden md:flex gap-8 items-center">
+        {navItems.map((item) => (
+          <motion.button
+            key={item.id}
+            onClick={() => scrollTo(item.id)}
+            whileHover={{ y: -2 }}
+            className={`font-label-md text-label-md transition-colors duration-300 ${
+              item.id === "work" 
+                ? "text-primary font-bold border-b-2 border-primary pb-1" 
+                : "text-on-surface-variant hover:text-primary"
+            }`}
           >
-            <BsGithub />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/hafiz-ali-haider-asghar-987992368/"
-            target="_blank"
-            rel="noreferrer"
-            className="text-slate-200 transition hover:text-white"
-          >
-            <FaLinkedinIn />
-          </a>
-          <button
-            type="button"
-            onClick={() => scrollTo("contact")}
-            className="btn-secondary rounded-full px-5 py-2 text-sm font-semibold"
-          >
-            Contact
-          </button>
-        </div>
+            {item.name}
+          </motion.button>
+        ))}
+      </nav>
 
-        <button
-          type="button"
-          onClick={() => setOpen(true)}
-          className="lg:hidden text-2xl text-slate-100"
+      <div className="hidden md:flex items-center gap-4">
+        <a
+          href="https://github.com/alih295"
+          target="_blank"
+          rel="noreferrer"
+          className="text-on-surface-variant hover:text-primary transition-colors duration-300"
         >
-          <FiMenu />
+          <BsGithub size={18} />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/hafiz-ali-haider-asghar-987992368/"
+          target="_blank"
+          rel="noreferrer"
+          className="text-on-surface-variant hover:text-primary transition-colors duration-300"
+        >
+          <FaLinkedinIn size={18} />
+        </a>
+        <button className="glass-btn px-6 py-2 rounded-full font-label-md text-label-md text-primary scale-105 active:scale-95 transition-all">
+          Resume
         </button>
-
-        <AnimatePresence>
-          {open && (
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ duration: 0.35, ease: "easeOut" }}
-              className="fixed top-0 right-0 z-50 h-screen w-[70%] bg-[#0b1016] p-6 shadow-2xl"
-            >
-              <div className="flex justify-end">
-                <button type="button" onClick={() => setOpen(false)} className="text-2xl text-slate-200">
-                  <RxCross1 />
-                </button>
-              </div>
-              <div className="mt-10 flex flex-col gap-6 text-lg text-slate-200">
-                {navItems.map((item) => (
-                  <button
-                    key={item.id}
-                    type="button"
-                    onClick={() => scrollTo(item.id)}
-                    className="rounded-2xl border border-white/10 bg-white/5 p-4 text-left transition hover:border-primary"
-                  >
-                    {item.name}
-                  </button>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
+
+      {/* Mobile Menu Button */}
+      <button
+        className="md:hidden text-on-surface-variant hover:text-primary transition-colors"
+        onClick={() => setOpen(!open)}
+      >
+        {open ? <RxCross1 size={24} /> : <FiMenu size={24} />}
+      </button>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="absolute top-full left-0 w-full bg-surface/95 backdrop-blur-xl border-b border-outline-variant/10 md:hidden"
+          >
+            <div className="flex flex-col p-6 gap-4">
+              {navItems.map((item) => (
+                <motion.button
+                  key={item.id}
+                  onClick={() => scrollTo(item.id)}
+                  whileHover={{ x: 4 }}
+                  className="text-on-surface-variant hover:text-primary transition-colors text-left font-label-md"
+                >
+                  {item.name}
+                </motion.button>
+              ))}
+              <div className="flex gap-4 pt-4 border-t border-outline-variant/10">
+                <a href="https://github.com/alih295" target="_blank" rel="noreferrer" className="text-on-surface-variant hover:text-primary">
+                  <BsGithub size={20} />
+                </a>
+                <a href="https://www.linkedin.com/in/hafiz-ali-haider-asghar-987992368/" target="_blank" rel="noreferrer" className="text-on-surface-variant hover:text-primary">
+                  <FaLinkedinIn size={20} />
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
