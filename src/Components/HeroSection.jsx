@@ -6,7 +6,7 @@ function HeroSection() {
   };
 
   return (
-    <motion.section className="min-h-screen flex flex-col md:flex-row items-center justify-center px-4 md:px-0 pt-16 md:pt-24 gap-6 md:gap-12 md:max-w-7xl md:mx-auto">
+    <motion.section className="min-h-screen flex flex-col md:flex-row items-center justify-center px-5 md:px-0 pt-16 md:pt-24 gap-6 md:gap-12 md:max-w-7xl md:mx-auto">
       {/* Left Side - Text Content */}
       <div className="w-full md:w-1/2 space-y-4 md:space-y-6">
         <h1 className="font-display-lg text-3xl sm:text-4xl md:text-display-lg leading-tight text-on-surface">

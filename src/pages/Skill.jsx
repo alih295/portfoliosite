@@ -17,7 +17,7 @@ const journeyItems = [
 
 function Skill() {
   return (
-    <section id="skills" className="w-full h-screen  mt-30">
+    <section id="skills" className="w-full h-full  mt-30">
       <div className="mx-auto max-w-7xl px-5 lg:px-0">
         <div className="mb-10 text-center">
           <p className="text-4xl font-[myFont2]">The Journey</p>

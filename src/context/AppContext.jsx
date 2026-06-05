@@ -39,7 +39,7 @@ const projects = [
         description:
             "A full-stack solution for discovering food videos in a modern social feed. Users can like, save, and explore restaurant recommendations with a polished interface.",
         image:
-            "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+            "../../public/project-img/food-review.jpg",
         tags: ["Web App", "MERN", "UX"],
         tech: ["React", "Node", "Express", "MongoDB"],
         code: "https://github.com/alih295/food-review",
@@ -49,7 +49,7 @@ const projects = [
         description:
             "A React-powered dashboard that supports employee CRUD workflows, team organization, and smooth local data persistence for quick admin updates.",
         image:
-            "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+            "../../public/project-img/ems.jpg",
         tags: ["Admin", "Dashboard", "MERN"],
         tech: ["React", "LocalStorage", "Tailwind"],
         code: "https://github.com/alih295/employee-management-system",
@@ -59,7 +59,7 @@ const projects = [
         description:
             "A clean note-taking experience built with React. It supports creating, editing, and deleting notes with a layout designed for fast use and readability.",
         image:
-            "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+            "../../public/project-img/notesapp.png",
         tags: ["Productivity", "React", "UI"],
         tech: ["React", "JavaScript", "CSS"],
         code: "https://github.com/alih295/notes-crud-app",
