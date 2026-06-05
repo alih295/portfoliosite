@@ -6,7 +6,10 @@ const skills = [
   "React.js",
   "Node.js",
   "Next.js",
-  "TailwindCSS"
+  "TailwindCSS",
+  "Docker",
+  "git",
+  "github"
 ];
 
 function About() {
@@ -25,7 +28,7 @@ function About() {
             <img
               alt="Profile Photo"
               className="w-full h-full object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-500"
-              src="./images/aboutImg.png"
+              src="./images/aboutImg.jpg"
             />
           </div>
         </motion.div>
