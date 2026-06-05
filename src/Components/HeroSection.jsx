@@ -9,10 +9,12 @@ function HeroSection() {
     <motion.section className="min-h-screen flex flex-col md:flex-row items-center justify-center px-5 md:px-0 pt-16 md:pt-24 gap-6 md:gap-12 md:max-w-7xl md:mx-auto">
       {/* Left Side - Text Content */}
       <div className="w-full md:w-1/2 space-y-4 md:space-y-6">
-        <h1 className="font-display-lg text-3xl sm:text-4xl md:text-display-lg leading-tight text-on-surface">
-          Building <span className="text-primary">Scalable</span> Full-Stack Applications
+        <h1 className="font-[myFont2] text-4xl md:text-5xl leading-tight">
+          Building <br />
+          <span className="text-primary">Scalable </span> 
+           Full- <br />Stack  Applications
         </h1>
-        
+
         <p className="font-body-lg text-sm sm:text-base md:text-body-lg text-on-surface-variant max-w-xl\">
           Crafting digital experiences with precision, architectural elegance, and the power of the MERN stack. From concept to deployment, I build for the future.
         </p>
@@ -26,7 +28,7 @@ function HeroSection() {
           >
             View Projects <span className="text-lg md:text-xl">↓</span>
           </motion.button>
-          
+
           <motion.button
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.95 }}
@@ -50,7 +52,7 @@ function HeroSection() {
           className="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700"
           src="./images/heroImg.png"
         />
-        
+
         {/* Code Window Overlay */}
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="p-8 bento-card rounded-2xl bg-surface/40 backdrop-blur-2xl border border-white/5 space-y-2">
@@ -60,11 +62,11 @@ function HeroSection() {
               <div className="w-3 h-3 rounded-full bg-secondary"></div>
               <div className="w-3 h-3 rounded-full bg-primary"></div>
             </div>
-            
+
             {/* Code Content */}
             <code className="text-primary font-code text-code block text-xs md:text-sm whitespace-nowrap">
-              <span className="text-pink-400">const</span> <span className="text-blue-400">architecture</span> = <span className="text-amber-200">"Scalable"</span>;<br/>
-              <span className="text-pink-400">const</span> <span className="text-blue-400">stack</span> = [<span className="text-amber-200">"M", "E", "R", "N"</span>];<br/>
+              <span className="text-pink-400">const</span> <span className="text-blue-400">architecture</span> = <span className="text-amber-200">"Scalable"</span>;<br />
+              <span className="text-pink-400">const</span> <span className="text-blue-400">stack</span> = [<span className="text-amber-200">"M", "E", "R", "N"</span>];<br />
               <span className="text-purple-400">deploy</span>(<span className="text-emerald-400">high_performance</span>);
             </code>
           </div>

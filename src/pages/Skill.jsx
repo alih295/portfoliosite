@@ -17,8 +17,8 @@ const journeyItems = [
 
 function Skill() {
   return (
-    <section id="skills" className="w-full h-full  mt-30">
-      <div className="mx-auto max-w-7xl px-5 lg:px-0">
+    <section id="skill" className="w-full  h-full  mt-30">
+      <div className="mx-auto md:max-w-7xl px-5 lg:px-0">
         <div className="mb-10 text-center">
           <p className="text-4xl font-[myFont2]">The Journey</p>
          
@@ -31,7 +31,7 @@ function Skill() {
           className=" rounded-xl flex
            items-center justify-center p-8"
         >
-          <div className="space-y-10 w-1/2">
+          <div className="space-y-10 md:w-1/2">
             {journeyItems.map((item) => (
               <div key={item.title} className="flex flex-col gap-4  pb-8 last:border-b-0 last:pb-0">
                 <div className="flex flex-wrap items-center justify-between gap-3">

@@ -19,6 +19,7 @@ function NavBar() {
     { name: "Work", id: "work" },
     { name: "About", id: "about" },
     { name: "Contact", id: "contact" },
+    {name:"Skill" , id:'skill'}
   ];
 
   const scrollTo = (id) => {
@@ -28,7 +29,7 @@ function NavBar() {
 
   return (
     <header className="fixed top-0 w-full z-50 flex justify-between items-center px-4 md:px-20 py-3 md:py-4 max-w-7xl mx-auto bg-surface/30 backdrop-blur-xl border-b border-outline-variant/10\">
-      <div className="text-body-lg font-headline-lg-mobile font-bold tracking-tighter text-on-surface">MERN.DEV</div>
+      <div className="text-body-lg font-headline-lg-mobile font-bold tracking-normal text-on-surface">MERN.DEV</div>
       
       <nav className="hidden md:flex gap-8 items-center">
         {navItems.map((item) => (
@@ -84,7 +85,7 @@ function NavBar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 w-full bg-surface/95 backdrop-blur-xl border-b border-outline-variant/10 md:hidden"
+            className="absolute top-full left-0 w-full bg-black/95  backdrop-blur-xl border-b border-outline-variant/10 md:hidden"
           >
             <div className="flex flex-col p-6 gap-4">
               {navItems.map((item) => (
